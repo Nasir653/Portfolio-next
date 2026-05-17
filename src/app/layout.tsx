@@ -1,8 +1,9 @@
-import 'tailwindcss/index.css';
+import "tailwindcss/index.css";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 const letterNFavicon = new URL("../assets/letter-n.png", import.meta.url);
+const ogImage = "/Logo-dark.png";
 
 export const metadata: Metadata = {
   title: "Nasir Malik | Software Engineer Portfolio",
@@ -40,7 +41,7 @@ export const metadata: Metadata = {
   creator: "Nasir Malik",
   publisher: "Nasir Malik",
 
-  metadataBase: new URL("https://yourdomain.com"),
+  metadataBase: new URL("https://nasirmalik.vercel.app/"),
 
   alternates: {
     canonical: "/",
@@ -50,11 +51,11 @@ export const metadata: Metadata = {
     title: "Nasir Malik | Software Engineer Portfolio",
     description:
       "Explore the portfolio of Nasir Malik, a software engineer building high-performance web applications with Next.js, React, and TypeScript.",
-    url: "https://yourdomain.com",
+    url: "https://nasirmalik.vercel.app/",
     siteName: "Nasir Malik Portfolio",
     images: [
       {
-        url: "/og-image.jpg",
+        url: ogImage,
         width: 1200,
         height: 630,
         alt: "Nasir Malik Portfolio",
@@ -69,8 +70,8 @@ export const metadata: Metadata = {
     title: "Nasir Malik | Software Engineer Portfolio",
     description:
       "Portfolio of Nasir Malik — Software Engineer specializing in Next.js, React, and TypeScript.",
-    images: ["/og-image.jpg"],
-    creator: "@yourtwitterhandle",
+    images: [ogImage],
+    creator: "@nasirmalik",
   },
 
   robots: {
