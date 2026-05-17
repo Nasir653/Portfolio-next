@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import type { ReactNode } from "react";
+import Image from "next/image";
 import { motion } from "motion/react";
 import type { IconType } from "react-icons";
 import {
@@ -56,6 +57,7 @@ const contactInfo: Array<{ icon: IconType; label: string }> = [
 ];
 
 const Footer = ({ isDarkMode }: ThemeProps) => {
+  const logoSrc = isDarkMode ? '/Logo-white.png' : '/Logo-dark.png';
   const currentYear = new Date().getFullYear();
   const [scrollProgress, setScrollProgress] = useState(0);
 
@@ -87,6 +89,27 @@ const Footer = ({ isDarkMode }: ThemeProps) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.25 }}
           >
+            <div className="mb-8 flex items-center gap-3">
+              <div
+                className={cn(
+                  'relative h-12 w-12 overflow-hidden rounded-3xl ring-1',
+                  isDarkMode
+                    ? 'bg-slate-900/90 ring-white/10'
+                    : 'bg-white/90 ring-slate-900/10',
+                )}
+              >
+                <Image
+                  src={logoSrc}
+                  alt="Nasir Malik logo"
+                  fill
+                  className="object-contain p-2"
+                />
+              </div>
+              <div>
+                <p className="text-xl font-bold text-white">Nasir Malik</p>
+                <p className="text-sm text-white/70">Software Engineer Portfolio</p>
+              </div>
+            </div>
             <p className="max-w-md leading-8 text-white/80">
               Creating beautiful, functional web experiences with modern
               technologies and innovative solutions.

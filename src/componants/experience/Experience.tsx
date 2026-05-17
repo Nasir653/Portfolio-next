@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import type { IconType } from "react-icons";
-import { FaBriefcase, FaLaptopCode, FaRocket } from "react-icons/fa";
+import { FaBriefcase, FaLaptopCode, FaRocket, FaCode } from "react-icons/fa";
 import Container from "../container/Container";
 import { cn } from "../../lib/cn";
 
@@ -22,10 +22,28 @@ type ExperienceItem = {
 const experiences: ExperienceItem[] = [
   {
     id: 1,
+    company: "Sazgenix IT Solutions",
+    role: "Full Stack Developer",
+    duration: "Currently Working",
+    period: "Present",
+    description:
+      "Building modern, scalable, and high-performance web and mobile applications using React Native, Next.js, React.js, NestJS, Node.js, and the MERN stack. Responsible for developing clean user interfaces, robust backend APIs, real-time features, and seamless third-party integrations for production-ready digital products.",
+    achievements: [
+      "Developed scalable RESTful and GraphQL APIs using NestJS, Node.js, Express, and MongoDB",
+      "Built responsive web applications with Next.js, React.js, and modern frontend architecture",
+      "Created cross-platform mobile applications using React Native",
+      "Integrated Firebase, Socket.IO, Agora, and secure payment gateway solutions",
+      "Implemented real-time features including live chat, notifications, video/audio calling, and dynamic data updates",
+      "Optimized application performance, API response time, responsiveness, and overall user experience",
+    ],
+    icon: FaCode,
+  },
+  {
+    id: 2,
     company: "NeoSoft Technologies",
     role: "Full Mern Stack Developer",
     duration: "2 months",
-    period: "Present",
+    period: "2025",
     description:
       "Spearheading the development of cross-platform mobile and web applications using React Native and the MERN stack, delivering responsive, high-performance solutions.",
     achievements: [
@@ -36,7 +54,7 @@ const experiences: ExperienceItem[] = [
     icon: FaRocket,
   },
   {
-    id: 2,
+    id: 3,
     company: "ILS Technology",
     role: "Full-Stack Developer",
     duration: "2.5 years",
@@ -51,7 +69,7 @@ const experiences: ExperienceItem[] = [
     icon: FaBriefcase,
   },
   {
-    id: 3,
+    id: 4,
     company: "MKT Software",
     role: "Software Developer",
     duration: "1 year",
@@ -146,97 +164,103 @@ const Experience = ({ isDarkMode }: ThemeProps) => {
                 key={exp.id}
                 className="relative grid gap-4 md:grid-cols-[minmax(0,1fr)_auto]"
               >
-              <div
-                className={cn(
-                  "rounded-3xl border p-5 transition-all duration-300 hover:-translate-y-1 sm:p-6 lg:p-8",
-                  isDarkMode
-                    ? "border-white/10 bg-white/[0.06] shadow-slate-950/30 hover:border-white/20"
-                    : "border-slate-200 bg-white/85 shadow-slate-200/80 hover:shadow-lg",
-                  isVisible && "animate-slide-in",
-                )}
-                style={{
-                  animationDelay: `${index * 0.1}s`,
-                  opacity: 0,
-                  animationFillMode: "forwards",
-                }}
-              >
-                <div className="flex flex-wrap items-start gap-4">
-                  <ExperienceIcon className="h-10 w-10 shrink-0" aria-hidden="true" />
-                  <div className="min-w-0 flex-1">
-                    <h3 className="text-xl font-bold sm:text-2xl">
-                      {exp.role}
-                    </h3>
-                    <p
-                      className={cn("mt-1 text-base font-semibold", mutedText)}
-                    >
-                      {exp.company}
-                    </p>
-                  </div>
-                  <div className="text-left sm:text-right">
-                    <span
-                      className={cn(
-                        "inline-flex rounded-full px-4 py-2 text-sm font-bold text-white",
-                        isDarkMode
-                          ? "bg-gradient-to-r from-indigo-500 to-violet-500"
-                          : "bg-gradient-to-r from-orange-500 to-orange-400",
-                      )}
-                    >
-                      {exp.duration}
-                    </span>
-                    <p className={cn("mt-2 text-sm", mutedText)}>
-                      {exp.period}
-                    </p>
-                  </div>
-                </div>
-
-                <p className={cn("mt-6 text-base leading-8", mutedText)}>
-                  {exp.description}
-                </p>
-
-                <div className="mt-6">
-                  <h4 className="text-lg font-bold">Key Achievements:</h4>
-                  <ul className="mt-4 grid gap-3">
-                    {exp.achievements.map((achievement) => (
-                      <li
-                        key={achievement}
-                        className={cn("flex gap-3 leading-7", mutedText)}
-                      >
-                        <span
-                          className={cn(
-                            "mt-1.5 h-2 w-2 shrink-0 rounded-full",
-                            isDarkMode ? "bg-indigo-400" : "bg-orange-500",
-                          )}
-                          aria-hidden="true"
-                        />
-                        <span>{achievement}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              {/* Timeline connector */}
-              <div className="hidden w-10 flex-col items-center md:flex">
                 <div
                   className={cn(
-                    "h-5 w-5 rounded-full shadow-[0_0_0_6px]",
+                    "rounded-3xl border p-5 transition-all duration-300 hover:-translate-y-1 sm:p-6 lg:p-8",
                     isDarkMode
-                      ? "bg-gradient-to-r from-indigo-500 to-violet-500 shadow-indigo-500/20"
-                      : "bg-gradient-to-r from-orange-500 to-orange-400 shadow-orange-500/20",
+                      ? "border-white/10 bg-white/[0.06] shadow-slate-950/30 hover:border-white/20"
+                      : "border-slate-200 bg-white/85 shadow-slate-200/80 hover:shadow-lg",
+                    isVisible && "animate-slide-in",
                   )}
-                />
-                {index !== experiences.length - 1 && (
+                  style={{
+                    animationDelay: `${index * 0.1}s`,
+                    opacity: 0,
+                    animationFillMode: "forwards",
+                  }}
+                >
+                  <div className="flex flex-wrap items-start gap-4">
+                    <ExperienceIcon
+                      className="h-10 w-10 shrink-0"
+                      aria-hidden="true"
+                    />
+                    <div className="min-w-0 flex-1">
+                      <h3 className="text-xl font-bold sm:text-2xl">
+                        {exp.role}
+                      </h3>
+                      <p
+                        className={cn(
+                          "mt-1 text-base font-semibold",
+                          mutedText,
+                        )}
+                      >
+                        {exp.company}
+                      </p>
+                    </div>
+                    <div className="text-left sm:text-right">
+                      <span
+                        className={cn(
+                          "inline-flex rounded-full px-4 py-2 text-sm font-bold text-white",
+                          isDarkMode
+                            ? "bg-gradient-to-r from-indigo-500 to-violet-500"
+                            : "bg-gradient-to-r from-orange-500 to-orange-400",
+                        )}
+                      >
+                        {exp.duration}
+                      </span>
+                      <p className={cn("mt-2 text-sm", mutedText)}>
+                        {exp.period}
+                      </p>
+                    </div>
+                  </div>
+
+                  <p className={cn("mt-6 text-base leading-8", mutedText)}>
+                    {exp.description}
+                  </p>
+
+                  <div className="mt-6">
+                    <h4 className="text-lg font-bold">Key Achievements:</h4>
+                    <ul className="mt-4 grid gap-3">
+                      {exp.achievements.map((achievement) => (
+                        <li
+                          key={achievement}
+                          className={cn("flex gap-3 leading-7", mutedText)}
+                        >
+                          <span
+                            className={cn(
+                              "mt-1.5 h-2 w-2 shrink-0 rounded-full",
+                              isDarkMode ? "bg-indigo-400" : "bg-orange-500",
+                            )}
+                            aria-hidden="true"
+                          />
+                          <span>{achievement}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Timeline connector */}
+                <div className="hidden w-10 flex-col items-center md:flex">
                   <div
                     className={cn(
-                      "mt-3 h-full w-0.5 flex-1 rounded-full",
+                      "h-5 w-5 rounded-full shadow-[0_0_0_6px]",
                       isDarkMode
-                        ? "bg-gradient-to-b from-indigo-500 to-violet-500"
-                        : "bg-gradient-to-b from-orange-500 to-orange-400",
+                        ? "bg-gradient-to-r from-indigo-500 to-violet-500 shadow-indigo-500/20"
+                        : "bg-gradient-to-r from-orange-500 to-orange-400 shadow-orange-500/20",
                     )}
                   />
-                )}
+                  {index !== experiences.length - 1 && (
+                    <div
+                      className={cn(
+                        "mt-3 h-full w-0.5 flex-1 rounded-full",
+                        isDarkMode
+                          ? "bg-gradient-to-b from-indigo-500 to-violet-500"
+                          : "bg-gradient-to-b from-orange-500 to-orange-400",
+                      )}
+                    />
+                  )}
+                </div>
               </div>
-            </div>
             );
           })}
         </div>

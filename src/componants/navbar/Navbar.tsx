@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { AnimatePresence, motion } from 'motion/react';
 import { FaBars, FaMoon, FaSun, FaTimes } from 'react-icons/fa';
 import LanguageTranslator from '../LanguageTranslator';
@@ -24,6 +25,8 @@ export default function Navbar({
   onToggleMenu,
   onToggleTheme,
 }: NavbarProps) {
+  const logoSrc = isDarkMode ? '/Logo-white.png' : '/Logo-dark.png';
+
   return (
     <motion.nav
       className={cn(
@@ -49,12 +52,22 @@ export default function Navbar({
             className="group flex items-center gap-3"
             onClick={() => onScrollToSection('home')}
           >
-            <motion.span
-              className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-700 text-lg font-extrabold text-white shadow-lg shadow-indigo-500/30"
+            <motion.div
+              className={cn(
+                'relative h-10 w-10 overflow-hidden rounded-xl shadow-lg shadow-indigo-500/30',
+                isDarkMode
+                  ? 'bg-slate-900/80 ring-1 ring-white/10'
+                  : 'bg-white/90 ring-1 ring-slate-900/10',
+              )}
               whileHover={{ y: -2, rotate: -3 }}
             >
-              N
-            </motion.span>
+              <Image
+                src={logoSrc}
+                alt="Nasir Malik logo"
+                fill
+                className="object-contain p-2"
+              />
+            </motion.div>
             <span className={cn('hidden text-lg font-extrabold tracking-normal sm:inline', isDarkMode ? 'text-white' : 'text-slate-950')}>
               Nasir Malik
             </span>

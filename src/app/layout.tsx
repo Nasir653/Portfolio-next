@@ -2,6 +2,8 @@ import 'tailwindcss/index.css';
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
+const letterNFavicon = new URL("../assets/letter-n.png", import.meta.url);
+
 export const metadata: Metadata = {
   title: "Nasir Malik | Software Engineer Portfolio",
   description:
@@ -83,6 +85,17 @@ export const metadata: Metadata = {
     },
   },
 
+  icons: {
+    icon: [
+      {
+        url: letterNFavicon,
+        type: "image/png",
+        sizes: "64x64",
+      },
+    ],
+    shortcut: letterNFavicon,
+    apple: letterNFavicon,
+  },
   category: "technology",
 };
 
