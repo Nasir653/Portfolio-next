@@ -1,0 +1,10 @@
+.next
+node_modules
+out
+build
+.env*.local
+next-env.d.ts
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
